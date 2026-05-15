@@ -14,7 +14,165 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      leakage_reports: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          image_url: string
+          location: string
+          severity: string
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string
+          location: string
+          severity?: string
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          image_url?: string
+          location?: string
+          severity?: string
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      notifications: {
+        Row: {
+          created_at: string
+          id: string
+          message: string
+          read: boolean
+          title: string
+          type: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          message: string
+          read?: boolean
+          title: string
+          type?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          message?: string
+          read?: boolean
+          title?: string
+          type?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          address: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          notifications_enabled: boolean
+          phone: string
+          updated_at: string
+          ward: string
+        }
+        Insert: {
+          address?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id: string
+          notifications_enabled?: boolean
+          phone?: string
+          updated_at?: string
+          ward?: string
+        }
+        Update: {
+          address?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          notifications_enabled?: boolean
+          phone?: string
+          updated_at?: string
+          ward?: string
+        }
+        Relationships: []
+      }
+      tanker_requests: {
+        Row: {
+          created_at: string
+          delivery_date: string
+          delivery_time: string
+          driver_name: string
+          driver_phone: string
+          eta_minutes: number
+          id: string
+          landmark: string
+          location: string
+          notes: string
+          price: number
+          quantity_liters: number
+          status: string
+          updated_at: string
+          user_id: string
+          vehicle_number: string
+        }
+        Insert: {
+          created_at?: string
+          delivery_date: string
+          delivery_time: string
+          driver_name?: string
+          driver_phone?: string
+          eta_minutes?: number
+          id?: string
+          landmark?: string
+          location: string
+          notes?: string
+          price?: number
+          quantity_liters: number
+          status?: string
+          updated_at?: string
+          user_id: string
+          vehicle_number?: string
+        }
+        Update: {
+          created_at?: string
+          delivery_date?: string
+          delivery_time?: string
+          driver_name?: string
+          driver_phone?: string
+          eta_minutes?: number
+          id?: string
+          landmark?: string
+          location?: string
+          notes?: string
+          price?: number
+          quantity_liters?: number
+          status?: string
+          updated_at?: string
+          user_id?: string
+          vehicle_number?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
