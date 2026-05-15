@@ -15,6 +15,8 @@ import { Route as AuthenticatedRouteImport } from './routes/_authenticated'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedWaterStatusRouteImport } from './routes/_authenticated/water-status'
 import { Route as AuthenticatedTankerRouteImport } from './routes/_authenticated/tanker'
+import { Route as AuthenticatedProfileRouteImport } from './routes/_authenticated/profile'
+import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
 import { Route as AuthenticatedLeakRouteImport } from './routes/_authenticated/leak'
 import { Route as AuthenticatedHistoryRouteImport } from './routes/_authenticated/history'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
@@ -50,6 +52,17 @@ const AuthenticatedTankerRoute = AuthenticatedTankerRouteImport.update({
   path: '/tanker',
   getParentRoute: () => AuthenticatedRoute,
 } as any)
+const AuthenticatedProfileRoute = AuthenticatedProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AuthenticatedRoute,
+} as any)
+const AuthenticatedNotificationsRoute =
+  AuthenticatedNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedRoute,
+  } as any)
 const AuthenticatedLeakRoute = AuthenticatedLeakRouteImport.update({
   id: '/leak',
   path: '/leak',
@@ -78,6 +91,8 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/history': typeof AuthenticatedHistoryRoute
   '/leak': typeof AuthenticatedLeakRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/tanker': typeof AuthenticatedTankerRouteWithChildren
   '/water-status': typeof AuthenticatedWaterStatusRoute
   '/tanker/$id': typeof AuthenticatedTankerIdRoute
@@ -89,6 +104,8 @@ export interface FileRoutesByTo {
   '/dashboard': typeof AuthenticatedDashboardRoute
   '/history': typeof AuthenticatedHistoryRoute
   '/leak': typeof AuthenticatedLeakRoute
+  '/notifications': typeof AuthenticatedNotificationsRoute
+  '/profile': typeof AuthenticatedProfileRoute
   '/tanker': typeof AuthenticatedTankerRouteWithChildren
   '/water-status': typeof AuthenticatedWaterStatusRoute
   '/tanker/$id': typeof AuthenticatedTankerIdRoute
@@ -102,6 +119,8 @@ export interface FileRoutesById {
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/_authenticated/history': typeof AuthenticatedHistoryRoute
   '/_authenticated/leak': typeof AuthenticatedLeakRoute
+  '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
+  '/_authenticated/profile': typeof AuthenticatedProfileRoute
   '/_authenticated/tanker': typeof AuthenticatedTankerRouteWithChildren
   '/_authenticated/water-status': typeof AuthenticatedWaterStatusRoute
   '/_authenticated/tanker/$id': typeof AuthenticatedTankerIdRoute
@@ -115,6 +134,8 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/history'
     | '/leak'
+    | '/notifications'
+    | '/profile'
     | '/tanker'
     | '/water-status'
     | '/tanker/$id'
@@ -126,6 +147,8 @@ export interface FileRouteTypes {
     | '/dashboard'
     | '/history'
     | '/leak'
+    | '/notifications'
+    | '/profile'
     | '/tanker'
     | '/water-status'
     | '/tanker/$id'
@@ -138,6 +161,8 @@ export interface FileRouteTypes {
     | '/_authenticated/dashboard'
     | '/_authenticated/history'
     | '/_authenticated/leak'
+    | '/_authenticated/notifications'
+    | '/_authenticated/profile'
     | '/_authenticated/tanker'
     | '/_authenticated/water-status'
     | '/_authenticated/tanker/$id'
@@ -194,6 +219,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedTankerRouteImport
       parentRoute: typeof AuthenticatedRoute
     }
+    '/_authenticated/profile': {
+      id: '/_authenticated/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AuthenticatedProfileRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
+    '/_authenticated/notifications': {
+      id: '/_authenticated/notifications'
+      path: '/notifications'
+      fullPath: '/notifications'
+      preLoaderRoute: typeof AuthenticatedNotificationsRouteImport
+      parentRoute: typeof AuthenticatedRoute
+    }
     '/_authenticated/leak': {
       id: '/_authenticated/leak'
       path: '/leak'
@@ -240,6 +279,8 @@ interface AuthenticatedRouteChildren {
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
   AuthenticatedHistoryRoute: typeof AuthenticatedHistoryRoute
   AuthenticatedLeakRoute: typeof AuthenticatedLeakRoute
+  AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
+  AuthenticatedProfileRoute: typeof AuthenticatedProfileRoute
   AuthenticatedTankerRoute: typeof AuthenticatedTankerRouteWithChildren
   AuthenticatedWaterStatusRoute: typeof AuthenticatedWaterStatusRoute
 }
@@ -248,6 +289,8 @@ const AuthenticatedRouteChildren: AuthenticatedRouteChildren = {
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
   AuthenticatedHistoryRoute: AuthenticatedHistoryRoute,
   AuthenticatedLeakRoute: AuthenticatedLeakRoute,
+  AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
+  AuthenticatedProfileRoute: AuthenticatedProfileRoute,
   AuthenticatedTankerRoute: AuthenticatedTankerRouteWithChildren,
   AuthenticatedWaterStatusRoute: AuthenticatedWaterStatusRoute,
 }
